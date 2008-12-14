@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<categories>
+    <category>
+        <name><![CDATA[Print]]></name>
+        <slug><![CDATA[print]]></slug>
+        <pieces>
+            <piece>
+                <title><![CDATA[Hello Kitty!]]></title>
+                <description><![CDATA[Some description text goes here.]]></description>
+                <images>
+                    <image src="images/hello-kitty-1.jpg" />
+                    <image src="images/hello-kitty-2.jpg" />
+                </images>
+            </piece>
+        </pieces>
+    </category>
+    <category>
+        <name><![CDATA[Print]]></name>
+        <slug><![CDATA[print]]></slug>
+        <pieces>
+            <piece>
+                <title><![CDATA[Hello Kitty!]]></title>
+                <description><![CDATA[Some description text goes here.]]></description>
+                <images>
+                    <image src="images/hello-kitty-1.jpg" />
+                    <image src="images/hello-kitty-2.jpg" />
+                </images>
+            </piece>
+        </pieces>
+    </category>
+    <category>
+        <name><![CDATA[Print]]></name>
+        <slug><![CDATA[print]]></slug>
+        <pieces>
+            <piece>
+                <title><![CDATA[Hello Kitty!]]></title>
+                <description><![CDATA[Some description text goes here.]]></description>
+                <images>
+                    <image src="images/hello-kitty-1.jpg" />
+                    <image src="images/hello-kitty-2.jpg" />
+                </images>
+            </piece>
+        </pieces>
+    </category>
+    <category>
+        <name><![CDATA[Print]]></name>
+        <slug><![CDATA[print]]></slug>
+        <pieces>
+            <piece>
+                <title><![CDATA[Hello Kitty!]]></title>
+                <description><![CDATA[Some description text goes here.]]></description>
+                <images>
+                    <image src="images/hello-kitty-1.jpg" />
+                    <image src="images/hello-kitty-2.jpg" />
+                </images>
+            </piece>
+        </pieces>
+    </category>
+</categories>
