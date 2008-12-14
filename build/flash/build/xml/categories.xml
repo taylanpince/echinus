@@ -15,8 +15,8 @@
         </pieces>
     </category>
     <category>
-        <name><![CDATA[Print]]></name>
-        <slug><![CDATA[print]]></slug>
+        <name><![CDATA[Logo]]></name>
+        <slug><![CDATA[logo]]></slug>
         <pieces>
             <piece>
                 <title><![CDATA[Hello Kitty!]]></title>
@@ -29,8 +29,8 @@
         </pieces>
     </category>
     <category>
-        <name><![CDATA[Print]]></name>
-        <slug><![CDATA[print]]></slug>
+        <name><![CDATA[Art]]></name>
+        <slug><![CDATA[art]]></slug>
         <pieces>
             <piece>
                 <title><![CDATA[Hello Kitty!]]></title>
@@ -43,8 +43,8 @@
         </pieces>
     </category>
     <category>
-        <name><![CDATA[Print]]></name>
-        <slug><![CDATA[print]]></slug>
+        <name><![CDATA[Illustration]]></name>
+        <slug><![CDATA[illustration]]></slug>
         <pieces>
             <piece>
                 <title><![CDATA[Hello Kitty!]]></title>

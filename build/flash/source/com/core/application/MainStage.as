@@ -14,8 +14,10 @@ import mx.transitions.Tween;
 class com.core.application.MainStage extends MovieClip {
     
     private var xmlPath:String;
+    private var activeMenu:MovieClip;
     
     private var LoaderBar:MovieClip;
+    private var Navigation:MovieClip;
     
     
     public function MainStage() {
@@ -51,7 +53,37 @@ class com.core.application.MainStage extends MovieClip {
 	
 	private function init():Void {
 	    trace("Initializing...");
-	    trace("Loaded " + Categories.getInstance().getItemList().length + " categories.")
+	    trace("Loaded " + Categories.getInstance().getItemList().length + " categories.");
+	    
+	    var categories:Array = Categories.getInstance().getItemList();
+	    var offsetY:Number = 0;
+	    
+	    for (var iterator:Number = 0; iterator < categories.length; iterator++) {
+	        var tempNavItem:MovieClip = Navigation.attachMovie("Nav Button", "nav_" + iterator, iterator, {
+	            _y : offsetY,
+	            message : "selectCategory",
+	            data : categories[iterator].index,
+	            title : categories[iterator].name,
+	            hover_color : 0xf8d616
+	        });
+	        
+	        offsetY += tempNavItem._height + 20;
+	        
+	        tempNavItem.addListener(this);
+	        
+	        if (iterator == 0) {
+	            activeMenu = tempNavItem;
+	            tempNavItem.selectButton(true);
+	        }
+	    }
+	}
+	
+	private function selectCategory( evt:Object ):Void {
+	    if (activeMenu != evt.target) {
+    	    activeMenu.deselectButton();
+    	    evt.target.selectButton();
+    	    activeMenu = evt.target;
+	    }
 	}
     
 }
