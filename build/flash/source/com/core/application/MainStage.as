@@ -74,6 +74,8 @@ class com.core.application.MainStage extends MovieClip {
 	        if (iterator == 0) {
 	            activeMenu = tempNavItem;
 	            tempNavItem.selectButton(true);
+	            
+	            loadCategory(0);
 	        }
 	    }
 	}
@@ -83,7 +85,14 @@ class com.core.application.MainStage extends MovieClip {
     	    activeMenu.deselectButton();
     	    evt.target.selectButton();
     	    activeMenu = evt.target;
+    	    
+    	    loadCategory(evt.target.data);
 	    }
+	}
+	
+	private function loadCategory( index:Number ):Void {
+	    trace(Categories.getInstance().getItem(index).pieces.length);
+	    trace(Categories.getInstance().getItem(index).pieces[0].images.length);
 	}
     
 }

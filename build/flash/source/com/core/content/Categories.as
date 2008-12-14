@@ -52,9 +52,17 @@ class com.core.content.Categories {
 				//contentTable[iterator].code = contentNode.attributes.code;
 				//contentTable[iterator].name = contentNode.childNodes[0].firstChild.nodeValue;
 				
-				contentTable[iterator].images = new Array();
+				contentTable[iterator].pieces = new Array();
 				for (var sub_iterator:Number = 0; sub_iterator < contentNode.childNodes[2].childNodes.length; sub_iterator++) {
-				    contentTable[iterator].images[sub_iterator] = contentNode.childNodes[2].childNodes[sub_iterator].attributes.src;
+				    contentTable[iterator].pieces[sub_iterator] = new Object();
+				    
+				    contentTable[iterator].pieces[sub_iterator].images = new Array();
+				    for (var img_iterator:Number = 0; img_iterator < contentNode.childNodes[2].childNodes[sub_iterator].childNodes.length; img_iterator++) {
+				        contentTable[iterator].pieces[sub_iterator].images[img_iterator] = new Object();
+				        
+    				    contentTable[iterator].pieces[sub_iterator].images[img_iterator].src = contentNode.childNodes[2].childNodes[sub_iterator].childNodes[img_iterator].attributes.src;
+    				    contentTable[iterator].pieces[sub_iterator].images[img_iterator].thumb = contentNode.childNodes[2].childNodes[sub_iterator].childNodes[img_iterator].attributes.thumb;
+				    }
 				}
 			}
 			
