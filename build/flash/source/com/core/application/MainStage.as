@@ -91,8 +91,8 @@ class com.core.application.MainStage extends MovieClip {
 	}
 	
 	private function loadCategory( index:Number ):Void {
-	    trace(Categories.getInstance().getItem(index).pieces.length);
-	    trace(Categories.getInstance().getItem(index).pieces[0].images.length);
+	    trace("Total Pieces: " + Categories.getInstance().getItem(index).pieces.length);
+	    trace("Total Images in First Piece: " + Categories.getInstance().getItem(index).pieces[0].images.length);
 	}
     
 }

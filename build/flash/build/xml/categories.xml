@@ -5,18 +5,14 @@
         <slug><![CDATA[print]]></slug>
         <pieces>
             <piece>
-                <title><![CDATA[Hello Kitty!]]></title>
-                <description><![CDATA[Some description text goes here.]]></description>
-                <images>
-                    <image src="images/fibre.jpg" thumb="images/fibre_thumb.jpg">
-                        <title><![CDATA[Fibre!]]></title>
-                        <description><![CDATA[A different kind of image]]></description>
-                    </image>
-                    <image src="images/domokun.jpg" thumb="images/domokun_thumb.jpg">
-                        <title><![CDATA[Domokun]]></title>
-                        <description><![CDATA[Domo strikes back]]></description>
-                    </image>
-                </images>
+                <image src="images/fibre.jpg" thumb="images/fibre_thumb.jpg">
+                    <title><![CDATA[Fibre!]]></title>
+                    <description><![CDATA[A different kind of image]]></description>
+                </image>
+                <image src="images/domokun.jpg" thumb="images/domokun_thumb.jpg">
+                    <title><![CDATA[Domokun]]></title>
+                    <description><![CDATA[Domo strikes back]]></description>
+                </image>
             </piece>
         </pieces>
     </category>
@@ -51,18 +47,14 @@
         <slug><![CDATA[illustration]]></slug>
         <pieces>
             <piece>
-                <title><![CDATA[Hello Kitty!]]></title>
-                <description><![CDATA[Some description text goes here.]]></description>
-                <images>
-                    <image src="images/fibre.jpg" thumb="images/fibre_thumb.jpg">
-                        <title><![CDATA[Fibre!]]></title>
-                        <description><![CDATA[A different kind of image]]></description>
-                    </image>
-                    <image src="images/bubble.jpg" thumb="images/bubble_thumb.jpg">
-                        <title><![CDATA[Hello Kitty!]]></title>
-                        <description><![CDATA[Some description text goes here.]]></description>
-                    </image>
-                </images>
+                <image src="images/fibre.jpg" thumb="images/fibre_thumb.jpg">
+                    <title><![CDATA[Fibre!]]></title>
+                    <description><![CDATA[A different kind of image]]></description>
+                </image>
+                <image src="images/bubble.jpg" thumb="images/bubble_thumb.jpg">
+                    <title><![CDATA[Hello Kitty!]]></title>
+                    <description><![CDATA[Some description text goes here.]]></description>
+                </image>
             </piece>
         </pieces>
     </category>
@@ -71,22 +63,18 @@
         <slug><![CDATA[art]]></slug>
         <pieces>
             <piece>
-                <title><![CDATA[Hello Kitty!]]></title>
-                <description><![CDATA[Some description text goes here.]]></description>
-                <images>
-                    <image src="images/fibre.jpg" thumb="images/fibre_thumb.jpg">
-                        <title><![CDATA[Fibre!]]></title>
-                        <description><![CDATA[A different kind of image]]></description>
-                    </image>
-                    <image src="images/domokun.jpg" thumb="images/domokun_thumb.jpg">
-                        <title><![CDATA[Domokun]]></title>
-                        <description><![CDATA[Domo strikes back]]></description>
-                    </image>
-                    <image src="images/bubble.jpg" thumb="images/bubble_thumb.jpg">
-                        <title><![CDATA[Hello Kitty!]]></title>
-                        <description><![CDATA[Some description text goes here.]]></description>
-                    </image>
-                </images>
+                <image src="images/fibre.jpg" thumb="images/fibre_thumb.jpg">
+                    <title><![CDATA[Fibre!]]></title>
+                    <description><![CDATA[A different kind of image]]></description>
+                </image>
+                <image src="images/domokun.jpg" thumb="images/domokun_thumb.jpg">
+                    <title><![CDATA[Domokun]]></title>
+                    <description><![CDATA[Domo strikes back]]></description>
+                </image>
+                <image src="images/bubble.jpg" thumb="images/bubble_thumb.jpg">
+                    <title><![CDATA[Hello Kitty!]]></title>
+                    <description><![CDATA[Some description text goes here.]]></description>
+                </image>
             </piece>
         </pieces>
     </category>
