@@ -23,6 +23,7 @@ class com.core.application.Gallery extends MovieClip {
     private var imageLoader:MovieClip;
     private var imageLoadingBar:MovieClip;
     private var imageTitle:MovieClip;
+    private var imageMask:MovieClip;
     private var thumbsLoader:MovieClip;
     private var thumbsMask:MovieClip;
     private var thumbsPreview:MovieClip;
@@ -120,15 +121,16 @@ class com.core.application.Gallery extends MovieClip {
 		
 		image_loader.addListener(loadProxy);
 		image_loader.loadClip(imagesList[index].images[0].src, imageLoader);
-		
-		//imageTitle.text = imagesList[index].images[0].title;
+		trace(imagesList[index].images[0].title);
+		imageTitle.text = imagesList[index].images[0].title;
+		imageTitle._width = imageTitle.textWidth + 10;
+		imageTitle._x = imageMask._x + ((imageMask._width - imageTitle._width) / 2);
 	}
 	
 	private function largeImageLoaded():Void {
-	    /*if (imageTitle._x < imageLoader._x) {
-	        new Tween(imageTitle, "_x", mx.transitions.easing.Regular.easeOut, imageTitle._x, imageLoader._x, 1, true);
-	    }*/
-	    
+	    imageLoader._x = imageMask._x + ((imageMask._width - imageLoader._width) / 2);
+	    imageLoader._y = imageMask._y + ((imageMask._height - imageLoader._height) / 2);
+		
 	    new Tween(imageLoadingBar, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoadingBar._alpha, 0, 0.5, true);
 	    new Tween(imageLoader, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoader._alpha, 100, 0.5, true);
 	}

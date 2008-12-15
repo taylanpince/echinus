@@ -17,6 +17,8 @@ class com.core.utils.controls.GalleryButton extends Button {
         super();
         
         active = false;
+        
+        btnHover._alpha = 0;
     }
     
     public function onRollOver():Void {
@@ -46,7 +48,7 @@ class com.core.utils.controls.GalleryButton extends Button {
     }
     
     private function rollOut():Void {
-        new Tween(btnHover, "_alpha", mx.transitions.easing.Regular.easeOut, btnHover._alpha, 0, 1, true);
+        new Tween(btnHover, "_alpha", mx.transitions.easing.Regular.easeOut, btnHover._alpha, 0, 4, true);
     }
     
     public function onRelease():Void {
@@ -70,7 +72,5 @@ class com.core.utils.controls.GalleryButton extends Button {
             rollOut();
         }
     }
-    
-    
 
 }

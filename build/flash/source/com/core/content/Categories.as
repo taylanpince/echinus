@@ -62,6 +62,8 @@ class com.core.content.Categories {
 				        
     				    contentTable[iterator].pieces[sub_iterator].images[img_iterator].src = contentNode.childNodes[2].childNodes[sub_iterator].childNodes[img_iterator].attributes.src;
     				    contentTable[iterator].pieces[sub_iterator].images[img_iterator].thumb = contentNode.childNodes[2].childNodes[sub_iterator].childNodes[img_iterator].attributes.thumb;
+    				    contentTable[iterator].pieces[sub_iterator].images[img_iterator].title = contentNode.childNodes[2].childNodes[sub_iterator].childNodes[img_iterator].childNodes[0].firstChild.nodeValue;
+    				    contentTable[iterator].pieces[sub_iterator].images[img_iterator].description = contentNode.childNodes[2].childNodes[sub_iterator].childNodes[img_iterator].childNodes[1].firstChild.nodeValue;
 				    }
 				}
 			}
