@@ -1,12 +1,14 @@
-import com.core.utils.controls.ImageButton;
+import com.core.utils.controls.Button;
 
 import mx.utils.Delegate;
 import mx.transitions.Tween;
 
 
-class com.core.utils.controls.GalleryButton extends ImageButton {
+class com.core.utils.controls.GalleryButton extends Button {
 
     private var active:Boolean;
+	private var rollover_message:String;
+	private var rollout_message:String;
     
     private var btnHover:MovieClip;
     
@@ -18,24 +20,32 @@ class com.core.utils.controls.GalleryButton extends ImageButton {
     }
     
     public function onRollOver():Void {
+        broadcastMessage(rollover_message, {
+			event: rollover_message, 
+			target: this
+		});
+
         if (!active) {
             rollOver();
         }
     }
     
     private function rollOver():Void {
-        new Tween(btnImage, "_alpha", mx.transitions.easing.Regular.easeOut, btnImage._alpha, 100, 1, true);
         new Tween(btnHover, "_alpha", mx.transitions.easing.Regular.easeOut, btnHover._alpha, 100, 1, true);
     }
     
     public function onRollOut():Void {
+        broadcastMessage(rollout_message, {
+			event: rollout_message, 
+			target: this
+		});
+        
         if (!active) {
             rollOut();
         }
     }
     
     private function rollOut():Void {
-        new Tween(btnImage, "_alpha", mx.transitions.easing.Regular.easeOut, btnImage._alpha, image_alpha, 1, true);
         new Tween(btnHover, "_alpha", mx.transitions.easing.Regular.easeOut, btnHover._alpha, 0, 1, true);
     }
     
@@ -60,5 +70,7 @@ class com.core.utils.controls.GalleryButton extends ImageButton {
             rollOut();
         }
     }
+    
+    
 
 }

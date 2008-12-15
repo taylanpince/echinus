@@ -25,7 +25,7 @@ class com.core.application.Gallery extends MovieClip {
     private var imageTitle:MovieClip;
     private var thumbsLoader:MovieClip;
     private var thumbsMask:MovieClip;
-    private var paginationBar:MovieClip;
+    private var thumbsPreview:MovieClip;
     
 
 	public function Gallery() {
@@ -41,6 +41,7 @@ class com.core.application.Gallery extends MovieClip {
 	    
 	    for (var iterator:Number = 0; iterator < imagesList.length; iterator++) {
 	        thumbsLoader["thumb_" + iterator].removeMovieClip();
+	        thumbsPreview["preview_" + iterator].removeMovieClip();
 	    }
 	    
 	    thumbsOffsetX = thumbsOffsetY = 0;
@@ -59,21 +60,27 @@ class com.core.application.Gallery extends MovieClip {
     	    var tempBtn:MovieClip = thumbsLoader.attachMovie("Gallery Button", "thumb_" + index, index, {
                 _x : thumbsOffsetX,
                 _y : thumbsOffsetY,
-                image_path : imagesList[index].images[0].thumb,
-                image_alpha : 60,
                 message : "showImage",
-                data : index,
-                index : index,
-                manager : this
+                rollover_message : "previewImage",
+                rollout_message : "cleanPreview",
+                data : index
             });
-            trace("Loading Thumbnail: " + imagesList[index].images[0].thumb);
-            thumbsOffsetX += tempBtn._width + 10;
+            
+            var tempPreview:MovieClip = thumbsPreview.attachMovie("Thumb Preview", "preview_" + index, index, {
+                image_path : imagesList[index].images[0].thumb,
+                _visible : false,
+                manager : this,
+                index : index
+            });
+            
+            thumbsOffsetX += tempBtn._width + 4;
             
             if (thumbsOffsetX >= thumbsMask._width) {
                 thumbsOffsetX = 0;
-                thumbsOffsetY += thumbsMask._height + 10;
+                thumbsOffsetY += thumbsMask._height + 8;
             }
             
+            tempPreview.addListener(this);
             tempBtn.addListener(this);
         }
 	}
@@ -84,6 +91,14 @@ class com.core.application.Gallery extends MovieClip {
         if (index == 0) {
             loadImage(0);
         }
+	}
+	
+	public function previewImage( evt:Object ):Void {
+	    thumbsPreview["preview_" + evt.target.data]._visible = true;
+	}
+	
+	public function cleanPreview( evt:Object ):Void {
+	    thumbsPreview["preview_" + evt.target.data]._visible = false;
 	}
 	
 	private function loadImage( index:Number ):Void {
