@@ -18,6 +18,7 @@ class com.core.application.MainStage extends MovieClip {
     
     private var LoaderBar:MovieClip;
     private var Navigation:MovieClip;
+    private var Gallery:MovieClip;
     
     
     public function MainStage() {
@@ -92,7 +93,9 @@ class com.core.application.MainStage extends MovieClip {
 	
 	private function loadCategory( index:Number ):Void {
 	    trace("Total Pieces: " + Categories.getInstance().getItem(index).pieces.length);
-	    trace("Total Images in First Piece: " + Categories.getInstance().getItem(index).pieces[0].images.length);
+	    
+	    Gallery.reset();
+	    Gallery.init(index);
 	}
     
 }
