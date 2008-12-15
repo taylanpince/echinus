@@ -31,13 +31,13 @@
                 </image>
             </piece>
             <piece>
-                <image src="images/bubble.jpg" thumb="images/bubble_thumb.jpg">
-                    <title><![CDATA[Hello Kitty!]]></title>
-                    <description><![CDATA[Some description text goes here.]]></description>
-                </image>
                 <image src="images/domokun.jpg" thumb="images/domokun_thumb.jpg">
                     <title><![CDATA[Domokun]]></title>
                     <description><![CDATA[Domo strikes back]]></description>
+                </image>
+                <image src="images/bubble.jpg" thumb="images/bubble_thumb.jpg">
+                    <title><![CDATA[Hello Kitty!]]></title>
+                    <description><![CDATA[Some description text goes here.]]></description>
                 </image>
             </piece>
         </pieces>

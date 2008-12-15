@@ -17,7 +17,7 @@ class com.core.utils.controls.NavButton extends HoverButton {
 	public function NavButton() {
 		super();
 		
-	    btnTitle.text = title;
+	    btnTitle.text = title.toLowerCase();
         btnTitle._width = btnShield._width = btnTitle.textWidth + 5;
         btnTitle._height = btnShield._height = btnTitle.textHeight + 5;
         

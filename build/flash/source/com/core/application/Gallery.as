@@ -74,16 +74,16 @@ class com.core.application.Gallery extends MovieClip {
                 thumbsOffsetY += thumbsMask._height + 10;
             }
             
-            if (index == 1) {
-                loadImage(0);
-            }
-            
             tempBtn.addListener(this);
         }
 	}
 	
 	public function imageLoaded( index:Number ):Void {
 	    loadThumb(index + 1);
+	    
+        if (index == 0) {
+            loadImage(0);
+        }
 	}
 	
 	private function loadImage( index:Number ):Void {
@@ -104,28 +104,15 @@ class com.core.application.Gallery extends MovieClip {
 		loadProxy.onLoadInit = Delegate.create(this, largeImageLoaded);
 		
 		image_loader.addListener(loadProxy);
-		image_loader.loadClip(imagesList[index].src, imageLoader);
+		image_loader.loadClip(imagesList[index].images[0].src, imageLoader);
 		
-		imageTitle.productName.text = imagesList[index].title;
-		
-		if (imagesList[index].product_code) {
-		    imageTitle.productName.text += "  " + imagesList[index].product_code;
-		    
-		    imageTitle.productLink.message = "loadProduct";
-		    imageTitle.productLink.data = imagesList[index].product_code;
-		    imageTitle.productLink.hover_color = 0xFFFFFF;
-		    imageTitle.productLink.addListener(_parent);
-		    
-		    imageTitle.productLink._visible = true;
-		} else {
-		    imageTitle.productLink._visible = false;
-		}
+		//imageTitle.text = imagesList[index].images[0].title;
 	}
 	
 	private function largeImageLoaded():Void {
-	    if (imageTitle._x < imageLoader._x) {
+	    /*if (imageTitle._x < imageLoader._x) {
 	        new Tween(imageTitle, "_x", mx.transitions.easing.Regular.easeOut, imageTitle._x, imageLoader._x, 1, true);
-	    }
+	    }*/
 	    
 	    new Tween(imageLoadingBar, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoadingBar._alpha, 0, 0.5, true);
 	    new Tween(imageLoader, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoader._alpha, 100, 0.5, true);

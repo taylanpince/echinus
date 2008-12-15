@@ -65,10 +65,10 @@ class com.core.application.MainStage extends MovieClip {
 	            message : "selectCategory",
 	            data : categories[iterator].index,
 	            title : categories[iterator].name,
-	            hover_color : 0xf8d616
+	            hover_color : 0x6bb7cf
 	        });
 	        
-	        offsetY += tempNavItem._height + 20;
+	        offsetY += tempNavItem._height + 5;
 	        
 	        tempNavItem.addListener(this);
 	        
