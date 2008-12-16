@@ -11,6 +11,7 @@ class com.core.utils.controls.GalleryButton extends Button {
 	private var rollout_message:String;
     
     private var btnHover:MovieClip;
+    private var btnDefault:MovieClip;
     
     
     public function GalleryButton() {
@@ -22,10 +23,12 @@ class com.core.utils.controls.GalleryButton extends Button {
     }
     
     public function onRollOver():Void {
-        broadcastMessage(rollover_message, {
-			event: rollover_message, 
-			target: this
-		});
+        if (rollover_message) {
+            broadcastMessage(rollover_message, {
+    			event: rollover_message, 
+    			target: this
+    		});
+        }
 
         if (!active) {
             rollOver();
@@ -37,10 +40,12 @@ class com.core.utils.controls.GalleryButton extends Button {
     }
     
     public function onRollOut():Void {
-        broadcastMessage(rollout_message, {
-			event: rollout_message, 
-			target: this
-		});
+        if (rollout_message) {
+            broadcastMessage(rollout_message, {
+    			event: rollout_message, 
+    			target: this
+    		});
+        }
         
         if (!active) {
             rollOut();
@@ -53,6 +58,7 @@ class com.core.utils.controls.GalleryButton extends Button {
     
     public function onRelease():Void {
         if (!active) {
+            markSeen();
             super.onRelease();
         }
     }
@@ -60,7 +66,7 @@ class com.core.utils.controls.GalleryButton extends Button {
     public function selectButton():Void {
         if (!active) {
             active = true;
-            
+            markSeen();
             rollOver();
         }
     }
@@ -71,6 +77,10 @@ class com.core.utils.controls.GalleryButton extends Button {
             
             rollOut();
         }
+    }
+    
+    public function markSeen():Void {
+        btnDefault._visible = false;
     }
 
 }
