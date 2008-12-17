@@ -64,6 +64,9 @@ class com.core.application.Gallery extends MovieClip {
 	    trace("Initializing gallery...");
 	    
 	    imagesList = Categories.getInstance().getItem(index).pieces;
+	    
+	    nextBtn.onRelease = Delegate.create(this, loadNextImage);
+	    prevBtn.onRelease = Delegate.create(this, loadPrevImage);
         
 	    loadThumb(0);
 	}
@@ -114,6 +117,22 @@ class com.core.application.Gallery extends MovieClip {
 	    thumbsPreview["preview_" + evt.target.data]._visible = false;
 	}
 	
+	public function loadNextImage():Void {
+	    if (imagesList[active_index].images.length > (active_sub_index + 1)) {
+	        loadImage(active_index, (active_sub_index + 1));
+	    } else if (imagesList.length > (active_index + 1)) {
+	        loadImage(active_index + 1);
+	    }
+	}
+	
+	public function loadPrevImage():Void {
+	    if (active_sub_index > 0) {
+	        loadImage(active_index, (active_sub_index - 1));
+	    } else if (active_index > 0) {
+	        loadImage((active_index - 1));
+	    }
+	}
+	
 	private function loadImage( index:Number, sub_index:Number ):Void {
 	    if (sub_index == null) {
 	        sub_index = 0;
@@ -150,6 +169,9 @@ class com.core.application.Gallery extends MovieClip {
 	    
 	    active_index = index;
 	    active_sub_index = sub_index;
+	    
+	    prevBtn._visible = (active_index > 0 || active_sub_index > 0);
+	    nextBtn._visible = !(active_index == (imagesList.length - 1) && active_sub_index == (imagesList[active_index].images.length - 1));
 	    
 	    trace("Loading image: " + index + " / " + sub_index);
 	    

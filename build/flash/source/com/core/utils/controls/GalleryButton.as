@@ -13,6 +13,9 @@ class com.core.utils.controls.GalleryButton extends Button {
     private var btnHover:MovieClip;
     private var btnDefault:MovieClip;
     
+    private var fadeOut:Tween;
+    private var fadeIn:Tween;
+    
     
     public function GalleryButton() {
         super();
@@ -36,7 +39,9 @@ class com.core.utils.controls.GalleryButton extends Button {
     }
     
     private function rollOver():Void {
-        new Tween(btnHover, "_alpha", mx.transitions.easing.Regular.easeOut, btnHover._alpha, 100, 1, true);
+        fadeIn.stop();
+        
+        fadeOut = new Tween(btnHover, "_alpha", mx.transitions.easing.Regular.easeOut, btnHover._alpha, 100, 1, true);
     }
     
     public function onRollOut():Void {
@@ -53,7 +58,9 @@ class com.core.utils.controls.GalleryButton extends Button {
     }
     
     private function rollOut():Void {
-        new Tween(btnHover, "_alpha", mx.transitions.easing.Regular.easeOut, btnHover._alpha, 0, 4, true);
+        fadeOut.stop();
+        
+        fadeIn = new Tween(btnHover, "_alpha", mx.transitions.easing.Regular.easeOut, btnHover._alpha, 0, 2, true);
     }
     
     public function onRelease():Void {
