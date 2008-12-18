@@ -93,7 +93,7 @@ class com.core.application.Gallery extends MovieClip {
             
             if (thumbsOffsetX >= thumbsMask._width) {
                 thumbsOffsetX = 0;
-                thumbsOffsetY += thumbsMask._height + 8;
+                thumbsOffsetY += thumbsLoader._height + 8;
             }
             
             tempPreview.addListener(this);
@@ -175,8 +175,8 @@ class com.core.application.Gallery extends MovieClip {
 	    
 	    trace("Loading image: " + index + " / " + sub_index);
 	    
-	    new Tween(imageLoadingBar, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoadingBar._alpha, 100, 0.5, true);
-	    new Tween(imageLoader, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoader._alpha, 0, 0.5, true);
+	    new Tween(imageLoadingBar, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoadingBar._alpha, 100, 1, true);
+	    new Tween(imageLoader, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoader._alpha, 0, 1, true);
 	    
 	    if (activeThumb) {
 	        activeThumb.deselectButton();
@@ -201,8 +201,8 @@ class com.core.application.Gallery extends MovieClip {
 	    imageLoader._x = imageMask._x + ((imageMask._width - imageLoader._width) / 2);
 	    imageLoader._y = imageMask._y + ((imageMask._height - imageLoader._height) / 2);
 		
-	    new Tween(imageLoadingBar, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoadingBar._alpha, 0, 0.5, true);
-	    new Tween(imageLoader, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoader._alpha, 100, 0.5, true);
+	    new Tween(imageLoadingBar, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoadingBar._alpha, 0, 1, true);
+	    new Tween(imageLoader, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoader._alpha, 100, 1, true);
 	    
 	    new Tween(viewsLoader, "_x", mx.transitions.easing.Regular.easeOut, viewsLoader._x, imageLoader._x + imageLoader._width - viewsLoader._width, 0.5, true);
 	    new Tween(viewsLoader, "_y", mx.transitions.easing.Regular.easeOut, viewsLoader._y, imageLoader._y - viewsLoader._height - 5, 0.5, true);

@@ -1,3 +1,4 @@
+import com.core.content.Links
 import com.core.content.Categories
 
 import mx.utils.Delegate;
@@ -19,6 +20,7 @@ class com.core.application.MainStage extends MovieClip {
     private var LoaderBar:MovieClip;
     private var Navigation:MovieClip;
     private var Gallery:MovieClip;
+    private var linksLoader:MovieClip;
     
     
     public function MainStage() {
@@ -37,9 +39,10 @@ class com.core.application.MainStage extends MovieClip {
 	    //new Tween(activeSection, "_alpha", mx.transitions.easing.Regular.easeOut, activeSection._alpha, 0, 0.6, true);
 	    
 	    Categories.getInstance(xmlPath);
+	    Links.getInstance(xmlPath);
 	    
 	    onEnterFrame = function() {
-	        if (Categories.getInstance().isLoaded()) {
+	        if (Categories.getInstance().isLoaded() && Links.getInstance().isLoaded()) {
 	            delete onEnterFrame;
 	            //delete LoaderBar.loaderBg.onRollOver;
 	            //delete LoaderBar.loaderBg.onRollOut;
@@ -79,6 +82,28 @@ class com.core.application.MainStage extends MovieClip {
 	            loadCategory(0);
 	        }
 	    }
+	    
+	    var links:Array = Links.getInstance().getItemList();
+	    var offsetY:Number = 0;
+	    
+	    for (var iterator:Number = 0; iterator < links.length; iterator++) {
+	        var tempLinkItem:MovieClip = linksLoader.attachMovie("Link Button", "link_" + iterator, iterator, {
+	            _y : offsetY,
+	            message : "launchLink",
+	            data : links[iterator].index,
+	            title : links[iterator].text,
+	            text_color : (links[iterator].color == "dark") ? 0x6bb7cf : 0xbcbec0,
+	            hover_color : (links[iterator].color == "dark") ? 0xbcbec0 : 0x6bb7cf
+	        });
+	        
+	        offsetY += tempLinkItem._height + 1;
+	        
+	        tempLinkItem.addListener(this);
+	    }
+	}
+	
+	private function launchLink( evt:Object ):Void {
+	    getURL(Links.getInstance().getItem(evt.target.data).href);
 	}
 	
 	private function selectCategory( evt:Object ):Void {

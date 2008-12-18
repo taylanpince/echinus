@@ -49,8 +49,6 @@ class com.core.content.Categories {
 				contentTable[iterator].index = iterator;
 				contentTable[iterator].name = contentNode.childNodes[0].firstChild.nodeValue;
 				contentTable[iterator].slug = contentNode.childNodes[1].firstChild.nodeValue;
-				//contentTable[iterator].code = contentNode.attributes.code;
-				//contentTable[iterator].name = contentNode.childNodes[0].firstChild.nodeValue;
 				
 				contentTable[iterator].pieces = new Array();
 				for (var sub_iterator:Number = 0; sub_iterator < contentNode.childNodes[2].childNodes.length; sub_iterator++) {
