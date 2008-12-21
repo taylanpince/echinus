@@ -1,0 +1,19 @@
+/*
+ *	Title: Screen CSS Styles for echinus.net
+ *	Date: December 21, 2008
+ *  Author: Taylan Pince (taylanpince at gmail dot com)
+ */
+
+
+/* @group Global */
+
+body {
+    background: #d0d0d2 url("../images/bg-page.jpg") 0% 50% no-repeat;
+}
+
+#Container {
+    width: 860px;
+    margin: 0px auto 0px auto;
+}
+
+/* @end */
