@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from portfolio.models import Category, Piece, Image
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(admin.StackedInline):
     model = Image
 
 
@@ -28,6 +28,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PieceAdmin(admin.ModelAdmin):
+    list_display = ("title", "active", "order")
     list_filter = ["active"]
     
     save_on_top = True

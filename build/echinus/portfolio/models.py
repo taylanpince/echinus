@@ -12,7 +12,7 @@ class Category(models.Model):
     """
     
     name = models.CharField(_("Name"), max_length=100)
-    slug = AutoSlugField(_("Slug"), populate_from="name")
+    slug = AutoSlugField(_("Slug"), populate_from="name", max_length=100)
     active = models.BooleanField(_("Active"), default=True)
     order = models.IntegerField(_("Order"), default=0)
     
@@ -38,6 +38,8 @@ class Piece(models.Model):
     A portfolio piece tied to one or more categories
     """
     
+    title = models.CharField(_("Title"), max_length=255)
+    slug = AutoSlugField(_("Slug"), populate_from="title", max_length=255)
     categories = models.ManyToManyField(Category, verbose_name=_("Categories"))
     active = models.BooleanField(_("Active"), default=True)
     order = models.IntegerField(_("Order"), default=0)
@@ -65,9 +67,9 @@ class Image(models.Model):
     """
     
     piece = models.ForeignKey(Piece, verbose_name=_("Piece"))
-    title = models.CharField(_("Title"), max_length=100)
-    description = models.TextField(_("Description"), blank=True)
+    title = models.CharField(_("Title"), max_length=255)
     file = models.ImageField(_("File"), upload_to="files/portfolio")
+    thumbnail = models.ImageField(upload_to="files/portfolio", blank=True, null=True)
     order = models.IntegerField(_("Order"), default=0)
     
     class Meta:
