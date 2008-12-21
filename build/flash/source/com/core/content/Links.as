@@ -19,7 +19,7 @@ class com.core.content.Links {
 	
 	public static function getInstance( xmlPath:String ):Links {
 		if (!instance) {
-			instance = new Links(xmlPath + "links.xml");
+			instance = new Links(xmlPath);
 		}
 		
 		return instance;

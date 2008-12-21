@@ -19,7 +19,7 @@ class com.core.content.Categories {
 	
 	public static function getInstance( xmlPath:String ):Categories {
 		if (!instance) {
-			instance = new Categories(xmlPath + "categories.xml");
+			instance = new Categories(xmlPath);
 		}
 		
 		return instance;

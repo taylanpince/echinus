@@ -14,7 +14,8 @@ import mx.transitions.Tween;
 
 class com.core.application.MainStage extends MovieClip {
     
-    private var xmlPath:String;
+    private var linksPath:String;
+    private var categoriesPath:String;
     private var activeMenu:MovieClip;
     
     private var LoaderBar:MovieClip;
@@ -38,8 +39,8 @@ class com.core.application.MainStage extends MovieClip {
 	    new Tween(LoaderBar, "_alpha", mx.transitions.easing.Regular.easeOut, LoaderBar._alpha, 100, 0.6, true);
 	    //new Tween(activeSection, "_alpha", mx.transitions.easing.Regular.easeOut, activeSection._alpha, 0, 0.6, true);
 	    
-	    Categories.getInstance(xmlPath);
-	    Links.getInstance(xmlPath);
+	    Categories.getInstance(categoriesPath);
+	    Links.getInstance(linksPath);
 	    
 	    onEnterFrame = function() {
 	        if (Categories.getInstance().isLoaded() && Links.getInstance().isLoaded()) {
