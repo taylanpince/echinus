@@ -36,8 +36,8 @@ class PieceAdmin(admin.ModelAdmin):
     inlines = [ImageInline]
     
     fieldsets = (
-        (_("Relations"), {
-            "fields": ("categories",),
+        (_("Content"), {
+            "fields": ("title", "categories",),
         }),
         (_("Publication Settings"), {
             "fields": ("active", "order"),
