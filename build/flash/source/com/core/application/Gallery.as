@@ -144,6 +144,8 @@ class com.core.application.Gallery extends MovieClip {
 	        sub_index = 0;
 	    }
 	    
+	    viewsLoader._alpha = 0;
+	    
 	    if (active_index && active_index != index) {
             for (var iterator:Number = 0; iterator < imagesList[active_index].images.length; iterator++) {
                 viewsLoader["view_" + iterator].removeMovieClip();
@@ -210,8 +212,10 @@ class com.core.application.Gallery extends MovieClip {
 	    new Tween(imageLoadingBar, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoadingBar._alpha, 0, 1, true);
 	    new Tween(imageLoader, "_alpha", mx.transitions.easing.Regular.easeOut, imageLoader._alpha, 100, 1, true);
 	    
-	    new Tween(viewsLoader, "_x", mx.transitions.easing.Regular.easeOut, viewsLoader._x, imageLoader._x + imageLoader._width - viewsLoader._width, 0.5, true);
-	    new Tween(viewsLoader, "_y", mx.transitions.easing.Regular.easeOut, viewsLoader._y, imageLoader._y - viewsLoader._height - 5, 0.5, true);
+	    viewsLoader._x = Math.floor(imageLoader._x + imageLoader._width - viewsLoader._width);
+	    viewsLoader._y = Math.floor(imageLoader._y - viewsLoader._height - 5);
+	    
+	    new Tween(viewsLoader, "_alpha", mx.transitions.easing.Regular.easeOut, viewsLoader._alpha, 100, 0.5, true);
 	}
 	
 	private function showSubImage( evt:Object ):Void {
