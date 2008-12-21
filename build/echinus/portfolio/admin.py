@@ -27,11 +27,8 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-class CommentAdmin(BatchModelAdmin):
-    list_display = ("post", "author", "email", "body", "creation_date", "change_date", "published")
-    list_filter = ["published"]
-    
-    search_fields = ("author", "email", "body", "url")
+class PieceAdmin(admin.ModelAdmin):
+    list_filter = ["active"]
     
     save_on_top = True
     

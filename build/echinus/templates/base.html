@@ -23,15 +23,20 @@
 <body>
 
     <div id="Container">
-        
-        <p>You need to have Adobe Flash Player installed to be able to experience this site.</p>
-        
+        <div id="FlashContainer">
+            <p>You need to have Adobe Flash Player installed to be able to experience this site.</p>
+        </div>
     </div>
     
     <script type="text/javascript" src="{{ MEDIA_URL }}js/swfobject.js"></script>
     <script type="text/javascript">
     //<![CDATA[
-        swfobject.embedSWF("{{ MEDIA_URL }}flash/app.swf", "Container", "860", "590", "8.0.0");
+        swfobject.embedSWF("{{ MEDIA_URL }}flash/app.swf", "FlashContainer", "860", "590", "8.0.0", null, {
+            "categoriesPath" : "{% url categories %}",
+            "linksPath" : ""
+        }, {
+            "wmode" : "transparent"
+        });
     //]]>
     </script>
     

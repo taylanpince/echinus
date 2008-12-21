@@ -8,12 +8,13 @@
 /* @group Global */
 
 body {
-    background: #d0d0d2 url("../images/bg-page.jpg") 0% 50% no-repeat;
+    background: #d0d0d2 url("../images/bg-page.jpg") 50% 0% no-repeat;
 }
 
 #Container {
     width: 860px;
     margin: 0px auto 0px auto;
+    padding: 72px 0px 0px 0px;
 }
 
 /* @end */

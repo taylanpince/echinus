@@ -1,7 +1,7 @@
-{% load thumbnail %}
 <?xml version="1.0" encoding="UTF-8" ?>
+{% load thumbnail %}
 <categories>
-    {% for cat in category %}
+    {% for category in categories %}
     <category>
         <name><![CDATA[{{ category.name }}]]></name>
         <slug><![CDATA[{{ category.slug }}]]></slug>

@@ -54,6 +54,8 @@ INSTALLED_APPS = (
     
     'django_extensions',
     'sorl.thumbnail',
+    
+    'portfolio',
 )
 
 try:
