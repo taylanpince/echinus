@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <links>
-    <link href="files/cv.pdf" color="dark"><![CDATA[resume]]></link>
+    <link href="{{ MEDIA_URL }}pdf/ekinyagman.pdf" color="dark"><![CDATA[resume]]></link>
     <link href="mailto:ekinyagman@gmail.com" color="light"><![CDATA[ekinyagman@gmail.com]]></link>
 </links>

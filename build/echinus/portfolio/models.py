@@ -67,7 +67,7 @@ class Image(models.Model):
     """
     
     piece = models.ForeignKey(Piece, verbose_name=_("Piece"))
-    title = models.CharField(_("Title"), max_length=255)
+    title = models.CharField(_("Title"), max_length=255, blank=True)
     file = models.ImageField(_("File"), upload_to="files/portfolio")
     thumbnail = models.ImageField(upload_to="files/portfolio", blank=True, null=True)
     order = models.IntegerField(_("Order"), default=0)
