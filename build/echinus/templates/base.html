@@ -33,7 +33,7 @@
     //<![CDATA[
         swfobject.embedSWF("{{ MEDIA_URL }}flash/app.swf", "FlashContainer", "860", "590", "8.0.0", null, {
             "categoriesPath" : "{% url categories %}",
-            "linksPath" : ""
+            "linksPath" : "{% url links %}"
         }, {
             "wmode" : "transparent"
         });

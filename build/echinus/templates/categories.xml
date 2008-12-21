@@ -9,7 +9,7 @@
             {% for piece in category.pieces %}
             <piece>
                 {% for image in piece.images %}
-                <image src="{% thumbnail image.file 600x510 %}" thumb="{% thumbnail image.file 50x50 crop,upscale %}">
+                <image src="{% thumbnail image.file 580x500 %}" thumb="{% thumbnail image.file 50x50 crop,upscale %}">
                     <title><![CDATA[{{ image.title }}]]></title>
                     <description><![CDATA[{{ image.description }}]]></description>
                 </image>

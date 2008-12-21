@@ -14,6 +14,11 @@ urlpatterns = patterns('',
         'template': 'base.html',
     }, name='home'),
     
+    # Fake Links
+    url(r'^links\.xml', 'django.views.generic.simple.direct_to_template', {
+        'template': 'links.xml',
+    }, name='links'),
+    
     # Portfolio
     (r'^portfolio/', include('portfolio.urls'))
 )
