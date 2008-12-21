@@ -38,6 +38,9 @@ class com.core.application.Gallery extends MovieClip {
 	    
 	    thumbsOffsetX = thumbsOffsetY = 0;
 	    
+	    imageTitle.text = "";
+	    nextBtn._visible = prevBtn._visible = false;
+	    
 	    image_loader = new MovieClipLoader();
 	}
 	
@@ -56,6 +59,9 @@ class com.core.application.Gallery extends MovieClip {
                 viewsLoader["view_" + iterator].removeMovieClip();
             }
 	    }
+	    
+	    imageTitle.text = "";
+	    nextBtn._visible = prevBtn._visible = false;
 	    
 	    active_index = active_sub_index = null;
 	}
