@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     
     # Home
     url(r'^$', 'django.views.generic.simple.direct_to_template', {
-        'template': 'base.html',
+        'template': 'home.html',
     }, name='home'),
     
     # Fake Links

@@ -8,6 +8,8 @@
 /* @group Global */
 
 body {
+    font: 13px Helvetica, Verdana, sans-serif;
+    color: #333;
     background: #d0d0d2 url("../images/bg-page.jpg") 50% 0% no-repeat;
 }
 
@@ -15,6 +17,16 @@ body {
     width: 860px;
     margin: 0px auto 0px auto;
     padding: 72px 0px 0px 0px;
+}
+
+#Page {
+    background-color: #FFF;
+    padding: 25px;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0px 0px 20px 0px;
 }
 
 /* @end */
