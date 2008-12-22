@@ -5,7 +5,7 @@
         <slug><![CDATA[print]]></slug>
         <pieces>
             <piece>
-                <image src="images/fibre.jpg" thumb="images/fibre_thumb.jpg">
+                <image src="images/fibre.jpg" thumb="images/fibre_thumb.jpg" shadow="true">
                     <title><![CDATA[Fibre!]]></title>
                     <description><![CDATA[A different kind of image]]></description>
                 </image>

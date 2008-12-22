@@ -3,6 +3,8 @@ import com.core.content.Categories;
 import mx.utils.Delegate;
 import mx.transitions.Tween;
 
+import flash.filters.DropShadowFilter;
+
 /**
  * Gallery
  * Gallery section
@@ -20,6 +22,7 @@ class com.core.application.Gallery extends MovieClip {
     private var image_loader:MovieClipLoader;
     private var active_index:Number;
     private var active_sub_index:Number;
+    private var shadow_filter:DropShadowFilter;
     
     private var imageLoader:MovieClip;
     private var imageLoadingBar:MovieClip;
@@ -42,6 +45,8 @@ class com.core.application.Gallery extends MovieClip {
 	    nextBtn._visible = prevBtn._visible = false;
 	    
 	    image_loader = new MovieClipLoader();
+	    
+	    shadow_filter = new DropShadowFilter(5, 60, 0x000000, 0.25);
 	}
 	
 	private function reset():Void {
@@ -146,11 +151,13 @@ class com.core.application.Gallery extends MovieClip {
 	    
 	    viewsLoader._alpha = 0;
 	    
-	    if (active_index && active_index != index) {
-            for (var iterator:Number = 0; iterator < imagesList[active_index].images.length; iterator++) {
-                viewsLoader["view_" + iterator].removeMovieClip();
-            }
-        }
+	    if (active_index != index) {
+    	    for (var item:String in viewsLoader) {
+    	        if (typeof viewsLoader[item] == "movieclip") {
+    	            viewsLoader[item].removeMovieClip();
+    	        }
+    	    }
+	    }
 	    
 	    if (imagesList[index].images.length > 1) {
 	        if (active_index != index) {
@@ -216,6 +223,13 @@ class com.core.application.Gallery extends MovieClip {
 	    viewsLoader._y = Math.floor(imageLoader._y - viewsLoader._height - 5);
 	    
 	    new Tween(viewsLoader, "_alpha", mx.transitions.easing.Regular.easeOut, viewsLoader._alpha, 100, 0.5, true);
+	    
+	    if (imagesList[active_index].images[active_sub_index].shadow) {
+		    trace("SHADOW!");
+		    imageLoader.filters = [shadow_filter];
+		} else {
+		    imageLoader.filters = [];
+		}
 	}
 	
 	private function showSubImage( evt:Object ):Void {
