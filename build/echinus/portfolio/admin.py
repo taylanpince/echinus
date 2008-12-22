@@ -28,8 +28,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PieceAdmin(admin.ModelAdmin):
-    list_display = ("title", "active", "order")
-    list_filter = ["active"]
+    list_display = ("title", "category", "active", "order")
+    list_filter = ["active", "category"]
+    
+    search_fields = ["title"]
     
     save_on_top = True
     
@@ -40,7 +42,7 @@ class PieceAdmin(admin.ModelAdmin):
             "fields": ("title", "categories",),
         }),
         (_("Publication Settings"), {
-            "fields": ("active", "order"),
+            "fields": ("active", "slug", "order"),
             "classes": ["collapse"],
         }),
     )

@@ -35,12 +35,12 @@ class Category(models.Model):
 
 class Piece(models.Model):
     """
-    A portfolio piece tied to one or more categories
+    A portfolio piece tied to a category
     """
     
     title = models.CharField(_("Title"), max_length=255)
     slug = AutoSlugField(_("Slug"), populate_from="title", max_length=255)
-    categories = models.ManyToManyField(Category, verbose_name=_("Categories"))
+    category = models.ForeignKey(Category, verbose_name=_("Category"))
     active = models.BooleanField(_("Active"), default=True)
     order = models.IntegerField(_("Order"), default=0)
     
