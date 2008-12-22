@@ -58,7 +58,7 @@ class Piece(models.Model):
         verbose_name_plural = _("Pieces")
     
     def __unicode__(self):
-        return u"Piece %s" % self.pk
+        return self.title
 
 
 class Image(models.Model):
