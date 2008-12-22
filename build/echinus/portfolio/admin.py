@@ -39,7 +39,7 @@ class PieceAdmin(admin.ModelAdmin):
     
     fieldsets = (
         (_("Content"), {
-            "fields": ("title", "categories",),
+            "fields": ("title", "category",),
         }),
         (_("Publication Settings"), {
             "fields": ("active", "slug", "order"),
