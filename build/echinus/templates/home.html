@@ -2,8 +2,9 @@
 
 
 {% block content %}
-<div id="FlashContainer">
-    <p>You need to have Adobe Flash Player installed to be able to experience this site.</p>
+<div id="Page">
+    <h1>Flash Player Missing</h1>
+    <p>You need to have <a href="http://www.adobe.com/go/EN_US-H-GET-FLASH" target="_blank">Adobe Flash Player</a> installed to be able to experience this site.</p>
 </div>
 {% endblock %}
 
@@ -12,7 +13,7 @@
 <script type="text/javascript" src="{{ MEDIA_URL }}js/swfobject.js"></script>
 <script type="text/javascript">
 //<![CDATA[
-    swfobject.embedSWF("{{ MEDIA_URL }}flash/app.swf", "FlashContainer", "860", "590", "8.0.0", null, {
+    swfobject.embedSWF("{{ MEDIA_URL }}flash/app.swf", "Page", "860", "590", "8.0.0", null, {
         "categoriesPath" : "{% url categories %}",
         "linksPath" : "{% url links %}"
     }, {

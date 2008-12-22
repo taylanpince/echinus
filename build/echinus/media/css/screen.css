@@ -19,7 +19,7 @@ body {
     padding: 72px 0px 0px 0px;
 }
 
-#Page {
+div#Page {
     background-color: #FFF;
     padding: 25px;
 }
@@ -27,6 +27,20 @@ body {
 h1 {
     font-size: 24px;
     margin: 0px 0px 20px 0px;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+    color: #333;
+    border-bottom: 1px solid #333;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: none;
+    background-color: #CCC;
 }
 
 /* @end */
