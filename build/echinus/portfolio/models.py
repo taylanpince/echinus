@@ -22,7 +22,7 @@ class Category(models.Model):
     
     @property
     def pieces(self):
-        return Piece.objects.filter(categories=self)
+        return Piece.objects.filter(category=self)
     
     class Meta:
         ordering = ["order"]
