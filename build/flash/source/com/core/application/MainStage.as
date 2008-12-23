@@ -22,22 +22,22 @@ class com.core.application.MainStage extends MovieClip {
     private var Navigation:MovieClip;
     private var Gallery:MovieClip;
     private var linksLoader:MovieClip;
+    private var bgBox:MovieClip;
     
     
     public function MainStage() {
         LoaderBar._visible = false;
         
-	    load();
+        var backgroundFadeIn:Tween = new Tween(bgBox, "_alpha", mx.transitions.easing.Regular.easeOut, bgBox._alpha, 100, 0.75, true);
+        
+        backgroundFadeIn.onMotionFinished = Delegate.create(this, load);
 	}
 	
 	private function load():Void {
 	    LoaderBar._alpha = 0;
 	    LoaderBar._visible = true;
 	    
-	    //LoaderBar.loaderBg.onRollOver = LoaderBar.loaderBg.onRollOut = LoaderBar.loaderBg.onRelease = function() {};
-	    
-	    new Tween(LoaderBar, "_alpha", mx.transitions.easing.Regular.easeOut, LoaderBar._alpha, 100, 0.6, true);
-	    //new Tween(activeSection, "_alpha", mx.transitions.easing.Regular.easeOut, activeSection._alpha, 0, 0.6, true);
+	    new Tween(LoaderBar, "_alpha", mx.transitions.easing.Regular.easeOut, LoaderBar._alpha, 100, 0.75, true);
 	    
 	    Categories.getInstance(categoriesPath);
 	    Links.getInstance(linksPath);
@@ -45,11 +45,8 @@ class com.core.application.MainStage extends MovieClip {
 	    onEnterFrame = function() {
 	        if (Categories.getInstance().isLoaded() && Links.getInstance().isLoaded()) {
 	            delete onEnterFrame;
-	            //delete LoaderBar.loaderBg.onRollOver;
-	            //delete LoaderBar.loaderBg.onRollOut;
-	            //delete LoaderBar.loaderBg.onRelease;
 	            
-	            new Tween(LoaderBar, "_alpha", mx.transitions.easing.Regular.easeOut, LoaderBar._alpha, 0, 0.6, true);
+	            new Tween(LoaderBar, "_alpha", mx.transitions.easing.Regular.easeOut, LoaderBar._alpha, 0, 0.75, true);
 	            
 	            init();
 	        }

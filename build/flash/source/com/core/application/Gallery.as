@@ -27,6 +27,7 @@ class com.core.application.Gallery extends MovieClip {
     private var imageLoader:MovieClip;
     private var imageLoadingBar:MovieClip;
     private var imageTitle:MovieClip;
+    private var imageTitleMask:MovieClip;
     private var imageMask:MovieClip;
     private var thumbsLoader:MovieClip;
     private var thumbsMask:MovieClip;
@@ -230,6 +231,8 @@ class com.core.application.Gallery extends MovieClip {
 		image_loader.addListener(loadProxy);
 		image_loader.loadClip(imagesList[index].images[sub_index].src, imageLoader);
 		
+		imageTitleMask._width = 0;
+	    
 		imageTitle.text = imagesList[index].images[sub_index].title;
 		imageTitle._width = imageTitle.textWidth + 10;
 		imageTitle._x = imageMask._x + ((imageMask._width - imageTitle._width) / 2);
@@ -252,6 +255,8 @@ class com.core.application.Gallery extends MovieClip {
 		} else {
 		    imageLoader.filters = [];
 		}
+		
+		new Tween(imageTitleMask, "_width", mx.transitions.easing.Regular.easeOut, imageTitleMask._width, imageTitle._width, 1, true);
 	}
 	
 	private function showSubImage( evt:Object ):Void {
