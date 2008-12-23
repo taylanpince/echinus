@@ -31,6 +31,9 @@ class com.core.application.Gallery extends MovieClip {
     private var thumbsLoader:MovieClip;
     private var thumbsMask:MovieClip;
     private var thumbsPreview:MovieClip;
+    private var thumbsPreviewMask:MovieClip;
+    private var thumbsLoadingBar:MovieClip;
+    private var thumbButton:MovieClip;
     private var nextBtn:MovieClip;
     private var prevBtn:MovieClip;
     private var viewsLoader:MovieClip;
@@ -47,6 +50,8 @@ class com.core.application.Gallery extends MovieClip {
 	    image_loader = new MovieClipLoader();
 	    
 	    shadow_filter = new DropShadowFilter(5, 60, 0x000000, 0.25);
+	    
+	    imageLoadingBar._alpha = thumbsLoadingBar._alpha = 0;
 	}
 	
 	private function reset():Void {
@@ -69,6 +74,8 @@ class com.core.application.Gallery extends MovieClip {
 	    nextBtn._visible = prevBtn._visible = false;
 	    
 	    active_index = active_sub_index = null;
+	    
+	    imageLoadingBar._alpha = thumbsLoadingBar._alpha = 0;
 	}
 	
 	public function init( index:Number ):Void {
@@ -78,6 +85,20 @@ class com.core.application.Gallery extends MovieClip {
 	    
 	    nextBtn.onRelease = Delegate.create(this, loadNextImage);
 	    prevBtn.onRelease = Delegate.create(this, loadPrevImage);
+	    
+	    var thumbsAreaTop:Number = Math.floor(this._parent.Navigation._y + this._parent.Navigation._height);
+	    var thumbsAreaBottom:Number = Math.floor(this._parent.linksLoader._y);
+	    
+	    thumbsMask._height = Math.ceil(imagesList.length / (thumbsMask._width / (thumbButton._width + 4))) * (thumbButton._height + 8) - 8;
+	    
+	    var thumbsAreaMargin:Number = Math.floor(thumbsMask._y - thumbsPreviewMask._y - thumbsPreviewMask._height);
+	    var thumbsAreaHeight:Number = Math.floor(thumbsPreviewMask._height + thumbsMask._height + (thumbsAreaMargin * 2));
+	    
+	    thumbsPreview._y = thumbsPreviewMask._y = thumbsAreaTop + Math.floor((thumbsAreaBottom - thumbsAreaTop - thumbsAreaHeight) / 2);
+	    thumbsMask._y = thumbsLoader._y = thumbsPreviewMask._y + thumbsPreviewMask._height + thumbsAreaMargin;
+	    thumbsLoadingBar._y = thumbsMask._y + thumbsMask._height + thumbsAreaMargin;
+        
+        new Tween(thumbsLoadingBar, "_alpha", mx.transitions.easing.Regular.easeOut, thumbsLoadingBar._alpha, 100, 1, true);
         
 	    loadThumb(0);
 	}
@@ -109,6 +130,8 @@ class com.core.application.Gallery extends MovieClip {
             
             tempPreview.addListener(this);
             tempBtn.addListener(this);
+        } else if (index >= imagesList.length) {
+            new Tween(thumbsLoadingBar, "_alpha", mx.transitions.easing.Regular.easeOut, thumbsLoadingBar._alpha, 0, 1, true);
         }
 	}
 	
@@ -225,7 +248,6 @@ class com.core.application.Gallery extends MovieClip {
 	    new Tween(viewsLoader, "_alpha", mx.transitions.easing.Regular.easeOut, viewsLoader._alpha, 100, 0.5, true);
 	    
 	    if (imagesList[active_index].images[active_sub_index].shadow) {
-		    trace("SHADOW!");
 		    imageLoader.filters = [shadow_filter];
 		} else {
 		    imageLoader.filters = [];

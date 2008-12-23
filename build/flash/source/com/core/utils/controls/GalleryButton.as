@@ -60,7 +60,7 @@ class com.core.utils.controls.GalleryButton extends Button {
     private function rollOut():Void {
         fadeOut.stop();
         
-        fadeIn = new Tween(btnHover, "_alpha", mx.transitions.easing.Regular.easeOut, btnHover._alpha, 0, 2, true);
+        fadeIn = new Tween(btnHover, "_alpha", mx.transitions.easing.Regular.easeOut, btnHover._alpha, 0, 4, true);
     }
     
     public function onRelease():Void {
