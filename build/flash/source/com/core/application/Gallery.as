@@ -22,6 +22,7 @@ class com.core.application.Gallery extends MovieClip {
     private var image_loader:MovieClipLoader;
     private var active_index:Number;
     private var active_sub_index:Number;
+    private var active_thumb:Number;
     private var shadow_filter:DropShadowFilter;
     
     private var imageLoader:MovieClip;
@@ -150,6 +151,12 @@ class com.core.application.Gallery extends MovieClip {
 	}
 	
 	public function previewImage( evt:Object ):Void {
+	    for (var iterator:String in thumbsPreview) {
+            if (typeof thumbsPreview[iterator] == "movieclip" && iterator != "preview_" + evt.target.data) {
+                thumbsPreview[iterator]._visible = false;
+            }
+        }
+        
 	    thumbsPreview["preview_" + evt.target.data]._visible = true;
 	    
 	    new Tween(thumbsPreviewMask, "_xscale", mx.transitions.easing.Regular.easeOut, thumbsPreviewMask._xscale, 100, 0.75, true);
@@ -158,9 +165,9 @@ class com.core.application.Gallery extends MovieClip {
 	
 	public function cleanPreview( evt:Object ):Void {
 	    new Tween(thumbsPreviewMask, "_xscale", mx.transitions.easing.Regular.easeOut, thumbsPreviewMask._xscale, 0.1, 0.75, true);
-	    var previewScale:Tween = new Tween(thumbsPreviewMask, "_yscale", mx.transitions.easing.Regular.easeOut, thumbsPreviewMask._yscale, 0.1, 0.75, true);
+	    var thumbsPreviewScale:Tween = new Tween(thumbsPreviewMask, "_yscale", mx.transitions.easing.Regular.easeOut, thumbsPreviewMask._yscale, 0.1, 0.75, true);
 	    
-	    previewScale.onMotionFinished = function() {
+	    thumbsPreviewScale.onMotionFinished = function() {
     	    thumbsPreview["preview_" + evt.target.data]._visible = false;
 	    };
 	}
