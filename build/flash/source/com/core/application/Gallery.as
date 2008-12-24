@@ -87,17 +87,22 @@ class com.core.application.Gallery extends MovieClip {
 	    nextBtn.onRelease = Delegate.create(this, loadNextImage);
 	    prevBtn.onRelease = Delegate.create(this, loadPrevImage);
 	    
+	    thumbsPreviewMask._xscale = thumbsPreviewMask._yscale = 100;
+	    
 	    var thumbsAreaTop:Number = Math.floor(this._parent.Navigation._y + this._parent.Navigation._height);
 	    var thumbsAreaBottom:Number = Math.floor(this._parent.linksLoader._y);
 	    
 	    thumbsMask._height = Math.ceil(imagesList.length / (thumbsMask._width / (thumbButton._width + 4))) * (thumbButton._height + 8) - 8;
 	    
-	    var thumbsAreaMargin:Number = Math.floor(thumbsMask._y - thumbsPreviewMask._y - thumbsPreviewMask._height);
+	    var thumbsAreaMargin:Number = Math.floor(thumbsMask._y - thumbsPreview._y - thumbsPreviewMask._height);
 	    var thumbsAreaHeight:Number = Math.floor(thumbsPreviewMask._height + thumbsMask._height + (thumbsAreaMargin * 2));
 	    
 	    thumbsPreview._y = thumbsPreviewMask._y = thumbsAreaTop + Math.floor((thumbsAreaBottom - thumbsAreaTop - thumbsAreaHeight) / 2);
-	    thumbsMask._y = thumbsLoader._y = thumbsPreviewMask._y + thumbsPreviewMask._height + thumbsAreaMargin;
+	    thumbsPreviewMask._y += thumbsPreviewMask._height / 2;
+	    thumbsMask._y = thumbsLoader._y = thumbsPreview._y + thumbsPreviewMask._height + thumbsAreaMargin;
 	    thumbsLoadingBar._y = thumbsMask._y + thumbsMask._height + thumbsAreaMargin;
+	    
+	    thumbsPreviewMask._xscale = thumbsPreviewMask._yscale = 0.1;
         
         new Tween(thumbsLoadingBar, "_alpha", mx.transitions.easing.Regular.easeOut, thumbsLoadingBar._alpha, 100, 1, true);
         
@@ -146,10 +151,18 @@ class com.core.application.Gallery extends MovieClip {
 	
 	public function previewImage( evt:Object ):Void {
 	    thumbsPreview["preview_" + evt.target.data]._visible = true;
+	    
+	    new Tween(thumbsPreviewMask, "_xscale", mx.transitions.easing.Regular.easeOut, thumbsPreviewMask._xscale, 100, 0.75, true);
+	    new Tween(thumbsPreviewMask, "_yscale", mx.transitions.easing.Regular.easeOut, thumbsPreviewMask._yscale, 100, 0.75, true);
 	}
 	
 	public function cleanPreview( evt:Object ):Void {
-	    thumbsPreview["preview_" + evt.target.data]._visible = false;
+	    new Tween(thumbsPreviewMask, "_xscale", mx.transitions.easing.Regular.easeOut, thumbsPreviewMask._xscale, 0.1, 0.75, true);
+	    var previewScale:Tween = new Tween(thumbsPreviewMask, "_yscale", mx.transitions.easing.Regular.easeOut, thumbsPreviewMask._yscale, 0.1, 0.75, true);
+	    
+	    previewScale.onMotionFinished = function() {
+    	    thumbsPreview["preview_" + evt.target.data]._visible = false;
+	    };
 	}
 	
 	public function loadNextImage():Void {
