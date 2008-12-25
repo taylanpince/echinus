@@ -115,6 +115,7 @@ class com.core.application.Gallery extends MovieClip {
     	    var tempBtn:MovieClip = thumbsLoader.attachMovie("Gallery Button", "thumb_" + index, index, {
                 _x : thumbsOffsetX,
                 _y : thumbsOffsetY,
+                _alpha : 0,
                 message : "showImage",
                 rollover_message : "previewImage",
                 rollout_message : "cleanPreview",
@@ -143,6 +144,8 @@ class com.core.application.Gallery extends MovieClip {
 	}
 	
 	public function imageLoaded( index:Number ):Void {
+	    new Tween(thumbsLoader["thumb_" + index], "_alpha", mx.transitions.easing.Regular.easeOut, thumbsLoader["thumb_" + index]._alpha, 100, 0.75, true);
+	    
 	    loadThumb(index + 1);
 	    
         if (index == 0) {
