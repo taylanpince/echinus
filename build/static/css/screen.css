@@ -1,0 +1,125 @@
+/*
+ *	Title: Screen CSS Styles for echinus.net
+ *	Date: June 4, 2008
+ *  Author: Taylan Pince (taylanpince@gmail.com)
+ */
+
+
+/* @group Global */
+
+body {
+    background-color: #FFF;
+}
+
+/* @end */
+
+
+/* @group Headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Georgia, Times New Roman, Times, serif;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+	color: #333;
+}
+
+/* @end */
+
+
+/* @group Text */
+
+p {
+	
+}
+
+blockquote {
+	
+}
+
+q {
+	
+}
+
+pre {
+	
+}
+
+code {
+	
+}
+
+hr {
+	
+}
+
+/* @end */
+
+
+/* @group Links */
+
+a,
+a:link,
+a:active,
+a:visited {
+	
+}
+
+a:hover {
+	
+}
+
+/* @end */
+
+
+/* @group Lists */
+
+ul {
+
+}
+
+li {
+	
+}
+
+ol {
+	
+}
+
+/* @end */
+
+
+/* @group Forms */
+
+form {
+	
+}
+
+label {
+	
+}
+
+input,
+select,
+textarea {
+	
+}
+
+/* @end */
+
+
+/* @group Layout */
+
+#Container {
+    width: 961px;
+    margin: 25px auto 0px auto;
+}
+
+/* @end */
