@@ -1,8 +1,8 @@
 def production():
     "Set the variables for the production environment"
-    set(fab_hosts=["72.47.216.91"])
-    set(fab_user="root")
-    set(remote_dir="/var/www/vhosts/echinus.net/subdomains/beta")
+    set(fab_hosts=["67.23.4.212"])
+    set(fab_user="taylan")
+    set(remote_dir="/home/taylan/sites/echinus")
 
 
 def deploy(hash="HEAD"):
@@ -17,7 +17,7 @@ def deploy(hash="HEAD"):
     
     # Create a temporary local directory, export the given commit using git archive
     local("mkdir ../tmp")
-    local("cd ..; git archive --format=tar --prefix=deploy/ $(hash) conf build/libs build/echinus | gzip > tmp/archive.tar.gz")
+    local("cd ..; git archive --format=tar --prefix=deploy/ $(hash) conf build/libs build/echinus build/static | gzip > tmp/archive.tar.gz")
     
     # Untar the archive to minify js files
     local("cd ../tmp; tar -xzf archive.tar.gz; rm -f archive.tar.gz")
@@ -48,7 +48,7 @@ def deploy(hash="HEAD"):
     run("mv $(remote_dir)/deploy $(remote_dir)/app")
     
     # Restart Apache
-    run("/usr/sbin/apachectl graceful")
+    sudo("/etc/init.d/apache2 restart")
     
     # Remove the temporary local directory
     local("rm -rf ../tmp")
