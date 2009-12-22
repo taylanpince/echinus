@@ -3,4 +3,4 @@ DATABASE_NAME = 'echinus'
 DATABASE_USER = 'echinusdbu'
 DATABASE_PASSWORD = 'pZl0idNMHl'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'http://media.echinus.net/'
